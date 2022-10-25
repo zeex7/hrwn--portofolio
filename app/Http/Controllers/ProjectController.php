@@ -19,8 +19,8 @@ class ProjectController extends Controller
     public function index()
     {
         $data = project::all();
-        $data1 = siswa::all();
-        return view('MasterProject', compact('data', 'data1'));
+        $siswa = siswa::all();
+        return view('MasterProject', compact('data', 'siswa'));
     }
 
     /**

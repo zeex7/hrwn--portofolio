@@ -1,6 +1,6 @@
 @extends('admin.app')
-@section('title','Master Project')
-@section('conten-title', 'Master Project')
+@section('title','MasterProject')
+@section('content-title','MasterProject')
 @section('content')
 <div class="row">
     <div class="col-lg-5">
@@ -28,7 +28,7 @@
                                       <a href="" onclick="show('{{ $item->id }}', event)" class="btn btn-primary btn-circle btn-sm">
                                           <i class="fas fa-eye"></i>
                                       </a>
-                                      <a href="{{ route('projects.create')}}" class="btn btn-warning btn-circle btn-sm">
+                                      <a href="{{ route('MasterProject.create')}}" class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-plus"></i>
                                       </a>
                                   </td>
