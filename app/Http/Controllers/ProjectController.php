@@ -28,7 +28,12 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    // public function create()
+    // {
+    //     $data = siswa::all($id);
+    //     return view('CreateProject', compact ('data'));
+    // }
+    public function tambah($id)
     {
         $data = siswa::find($id);
         return view('CreateProject', compact ('data'));
@@ -56,7 +61,7 @@ class ProjectController extends Controller
             'nama_project' => 'required|min:5',
             'tanggal' => 'required',
             'deskripsi' => 'required|min:5',
-            'foto' => 'required|mimes:jpg,jpeg,png.gif,svg',
+            'foto' => 'required',
             
         ],$messages);
 
@@ -102,8 +107,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        $data = project::find($id);
-        return view('EditProject', compact('data','siswa'));
+        // dd($id);
+        $projects = project::find($id);
+        return view('EditProject', compact('projects'));
     }
 
     /**
@@ -125,13 +131,9 @@ class ProjectController extends Controller
         ];
 
         $this->validate($request,[
-            'id_siswa' => 'required',
             'nama_project' => 'required|min:5',
             'tanggal' => 'required',
             'deskripsi' => 'required|min:5',
-            'foto' => '
-            
-            mimes:jpg,jpeg,png.gif,svg',
             
         ],$messages);
 
@@ -155,7 +157,6 @@ class ProjectController extends Controller
 
     //5.menyimpan ke database
             $project=project::find($id);    
-            $project->id_siswa = $request->id_siswa;
             $project->nama_project = $request->nama_project;
             $project->tanggal = $request->tanggal;
             $project->deskripsi = $request->deskripsi;
@@ -167,7 +168,6 @@ class ProjectController extends Controller
         }else{
             //Tanpa Ganti Foto
             $project=project::find($id);
-            $project->id_siswa = $request->id_siswa;
             $project->nama_project = $request->nama_project;
             $project->tanggal = $request->tanggal;
             $project->deskripsi = $request->deskripsi;
@@ -184,6 +184,7 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Project::find($id)->delete();
+        return redirect('MasterProject');
     }
 }

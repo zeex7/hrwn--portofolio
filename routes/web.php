@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/MasterSiswa', SiswaController::class);
     Route::resource('/MasterProject', ProjectController::class);
     Route::resource('/MasterKontak', KontakController::class);
+    Route::get('/MasterProject/tambah/{id}', [ProjectController::class, 'tambah']);
 });
 
 //GUEST

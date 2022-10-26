@@ -15,6 +15,7 @@
                       <thead>
                           <tr>
                               <th>NO</th>
+                              <th>NISN</th>
                               <th>Nama Siswa</th>
                               <th>Action</th>
                           </tr>
@@ -23,12 +24,13 @@
                           @foreach ($siswa as $item)
                               <tr>
                                   <td>{{ $loop->iteration }}</td>
+                                  <td>{{$item->nisn}}</td>
                                   <td>{{ $item->nama }}</td>
                                   <td>
                                       <a href="" onclick="show('{{ $item->id }}', event)" class="btn btn-primary btn-circle btn-sm">
                                           <i class="fas fa-eye"></i>
                                       </a>
-                                      <a href="{{ route('MasterProject.create')}}" class="btn btn-warning btn-circle btn-sm">
+                                      <a href="/MasterProject/tambah/{{$item->id}}" class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-plus"></i>
                                       </a>
                                   </td>
