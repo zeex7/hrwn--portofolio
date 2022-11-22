@@ -15,6 +15,18 @@
                 <h5>{{$data->alamat}}</h5>                
             </div>
         </div>
+        <div class="col-lg-13">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <h6 class="font-weight-bold text-primary">Kontak</h6>
+                </div>
+                <div class="card-bodyadw">                
+                          @foreach ($kontak as $item)
+                              {{$item->deskripsi}}
+                          @endforeach                                          
+                </div>
+            </div>
+        </div>  
     </div>
     <div class="col-lg-8">
         <div class="card shadow mb-4">
@@ -32,21 +44,18 @@
                 <h6 class="font-weight-bold text-primary">Project</h6>
             </div>
             <div class="card-body">
+                @foreach ($data->project as $p)
+                <div class="mb-5"> 
+                    <h5>Nama Project: {{$p->nama_project}}</h5>
+                    <img src="{{ asset('template/img/' . $p->foto) }}" width="300">
+                    <small class="text-danger d-block">Tanggal: {{$p->tanggal}}</small>
+                    <h5>Deskripsi: {{$p->deskripsi}}</h5>
+                </div>
+                
+                @endforeach
                 
             </div>            
         </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card shadow mb-4">
-            <div class="card-header">
-                <h6 class="font-weight-bold text-primary">Kontak</h6>
-            </div>
-            <div class="card-bodyadw">                
-                      @foreach ($kontak as $item)
-                          {{$item->deskripsi}}
-                      @endforeach                                          
-            </div>
-        </div>
-    </div>                
+    </div>              
 </div>
 @endsection

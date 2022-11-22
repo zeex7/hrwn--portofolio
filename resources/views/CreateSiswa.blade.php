@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label for="jk">Jenis Kelamin</label>
-                        <select class="form-select form-control" id="jk" name="jk" value="{{old('jk')}}">  
+                        <select class="form-select form-control" id="jk" name="jk" value="{{old('jk')}}">           
                             <option value="Laki-Laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
